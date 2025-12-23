@@ -60,7 +60,7 @@ submitBtn.addEventListener('click', function() {
         message.style.color = "green";
         gameOver();
     } else if (remaining <= 0) {
-        message.textContent = `Game Over! The number was ${randomNumber}.`;
+        message.textContent = `Game Over! The number was $${randomNumber}.`;
         message.style.color = "black";
         gameOver();
     }
@@ -84,7 +84,7 @@ function updateHistory() {
         // Only show an arrow if it wasn't the correct guess
         let arrowHTML = guess.dir ? `<small style="color: ${arrowColor}">${guess.dir}</small>` : '';
         
-        chip.innerHTML = `${guess.val} ${arrowHTML}`;
+        chip.innerHTML = `$${guess.val} ${arrowHTML}`;
         guessHistory.appendChild(chip);
     });
 }
