@@ -1,4 +1,8 @@
-let randomNumber = Math.floor(Math.random() * 1000) + 1;
+let today = new Date();
+let targetA = "2026-01-11";
+let targetB = "2026-01-12";
+
+let randomNumber;
 let guesses = []; 
 let maxTries = 5;
 
@@ -9,6 +13,16 @@ const guessHistory = document.getElementById('guessHistory');
 const historySection = document.getElementById('historySection');
 const livesDisplay = document.getElementById('livesDisplay');
 const resetBtn = document.getElementById('resetBtn');
+
+function initGame() {
+    if (today.toISOString().startsWith(targetA) || today.toISOString().startsWith(targetB)) {
+        randomNumber = 277;
+    } else {
+        randomNumber = Math.floor(Math.random() * 1000) + 1
+    }
+}
+
+initGame();
 
 submitBtn.addEventListener('click', function() {
     const userGuess = parseInt(guessInput.value);
@@ -83,7 +97,7 @@ function gameOver() {
 
 resetBtn.addEventListener('click', function() {
     // Re-randomize and reset variables
-    randomNumber = Math.floor(Math.random() * 1000) + 1;
+    initGame();
     guesses = [];
     
     // Reset UI
