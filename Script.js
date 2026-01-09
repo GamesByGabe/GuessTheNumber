@@ -1,6 +1,7 @@
 let today = new Date();
-let targetA = "2026-01-11";
-let targetB = "2026-01-12";
+let targetA = "2026-01-09";
+let targetB = "2026-01-10";
+let targetC = "2026-01-11";
 
 let randomNumber;
 let guesses = []; 
@@ -15,8 +16,12 @@ const livesDisplay = document.getElementById('livesDisplay');
 const resetBtn = document.getElementById('resetBtn');
 
 function initGame() {
-    if (today.toISOString().startsWith(targetA) || today.toISOString().startsWith(targetB)) {
+    if (today.toISOString().startsWith(targetA)) {
+        randomNumber = 276;
+    } else if(today.toISOString().startsWith(targetB)){
         randomNumber = 277;
+    } else if(today.toISOString().startsWith(targetC)){
+        randomNumber = 278;
     } else {
         randomNumber = Math.floor(Math.random() * 1000) + 1
     }
